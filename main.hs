@@ -1,3 +1,27 @@
+{-
+   _____ ______                      
+   \    \\     \                     
+    \    \\     \                    
+     \    \\     \ _____________     
+      \    \\     \\            \    
+       \    \\     \\____________\   
+        \    \\     \ _____________  
+        /    //      \\            \ 
+       /    //        \\____________\
+      /    //    /\    \             
+     /    //    /  \    \            
+    /    //    /    \    \           
+   /____//____/      \____\          
+    _    _           _        _ _   
+   | |  | |         | |      | | |  
+   | |__| | __ _ ___| | _____| | |  
+   |  __  |/ _` / __| |/ / _ \ | |  
+   | |  | | (_| \__ \   <  __/ | |  
+   |_|  |_|\__,_|___/_|\_\___|_|_|  
+
+-}
+
+
 module Main where
 
 main :: IO()
@@ -41,4 +65,8 @@ sort' (x:xs) =
 -- Tail recursion Fibonacci
 tailFib :: (Num a, Eq a, Enum a) => a -> a -> [a] -> a -> [a]
 tailFib _  _  result 0 = result
-tailFib cur next arr n = tailFib next (cur+next) (arr++[cur]) $ pred n
+tailFib cur next arr n = tailFib next (cur+next) (arr++[cur]) $ pred n}
+
+-- High order function in Haskell >\=
+
+0
