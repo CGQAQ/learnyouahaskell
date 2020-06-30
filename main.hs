@@ -102,8 +102,8 @@ which produces a new number and so on. In essence, we get a chain of numbers.
 collatzSeq :: (Integral a, Num a) => a -> [a]
 collatzSeq 1        = [1]
 collatzSeq x
-    | (odd x)    = [x] ++ (collatzSeq $ x*3+1)
-    | (even x)   = [x] ++ (collatzSeq $ x `div` 2)
+    | (odd x)    = x:(collatzSeq $ x*3+1)
+    | (even x)   = x:(collatzSeq $ x `div` 2)
     | otherwise = []
 --chainCount :: Int
 chainCount = length $ filter (>15) $ map length $ map collatzSeq [1..100]
