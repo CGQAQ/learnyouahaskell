@@ -107,3 +107,28 @@ collatzSeq x
     | otherwise = []
 --chainCount :: Int
 chainCount = length $ filter (>15) $ map length $ map collatzSeq [1..100]
+
+
+
+-- maximum fold
+maximum'fold :: (Integral a, Ord a) => [a] -> a
+maximum'fold x = foldr1 max x
+
+
+-- reverse' fold
+reverse'fold :: (Integral a) => [a] -> [a]
+reverse'fold x = foldl (\acc x -> x:acc) [] x
+
+
+-- product'fold
+product'fold :: (Integral a) => [a] -> a
+product'fold x = foldl1 (*) x
+-- filter'fold
+filter'fold :: (Integral a) => (a->Bool) -> [a] -> [a]
+filter'fold p = foldr (\x acc -> if p x then x:acc else acc) []
+-- head'fold
+head'fold :: (Integral a) => [a] -> a
+head'fold = foldr1 (\x _ -> x)
+-- last'fold
+last'fold :: (Integral a) => [a] -> a
+last'fold = foldr1 (\_ x -> x)
