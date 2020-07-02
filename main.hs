@@ -59,8 +59,9 @@ sort' [] = []
 -- sort' [x] = [x]
 sort' (x:xs) =
     let smallerSort = sort' [a | a <- xs, a <= x]
-        biggerSort = sort' [a|a <- xs, a>x]
+        biggerSort = sort' [a | a <- xs, a>x]
     in smallerSort ++ [x] ++ biggerSort
+   
 
 -- Tail recursion Fibonacci
 tailFib :: (Num a, Eq a, Enum a) => a -> a -> [a] -> a -> [a]
@@ -85,7 +86,7 @@ oddSquaresLessThan10'000 :: (Integral a) => a
 oddSquaresLessThan10'000 = sum $ takeWhile (<10000) $ filter odd $ map (^2) $ [1..]
 
 oddSquaresLessThan10'000' :: (Integral a) => a
-oddSquaresLessThan10'000' = sum $ takeWhile (<10000) $ [oddSquare|x <- [1..], let oddSquare = x^2, (odd oddSquare)]
+oddSquaresLessThan10'000' = sum $ takeWhile (<10000) $ [oddSquare | x <- [1..], let oddSquare = x^2, (odd oddSquare)]
 
 {-
 For our next problem, we'll be dealing with Collatz sequences. 
